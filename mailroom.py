@@ -11,19 +11,33 @@ def donor_list():
 '''
 When run, the script should prompt the user to choose from a menu of 2 actions: ‘Send a Thank You’ or ‘Create a Report’.
 '''
-response = input('Send a Thank You or Create a Report ').lower()
+def prompt():
+	response = input('Send a Thank You or Create a Report ').lower()
+	return response
+
+response = prompt()
 
 '''
 If the user selects ‘Send a Thank You’, prompt for a Full Name.
 '''
 if response == 'send a thank you':
 	name = input('Full Name')
-	print(name)
+	donation = donors[name]
+	print('Thank you {0} for your donation of {1}'.format(name, donation))
+
 '''
 If the user types ‘list’, show them a list of the donor names and re-prompt
 '''
 if response == 'list':
 	donor_list()
+	goto start
+	
+
+def add_donor(Ayden):
+	amount = input('Donation amount?')
+	donors[name] = amount
+	print(donors)
+
 
 
 '''
@@ -39,6 +53,8 @@ Once an amount has been given, add that amount to the donation history of the se
 #	input('what is donation amount')
 #		use if to check if valid input:
 #			add amount to donor if valid
+
+
 	
 '''
 Finally, use string formatting to compose an email thanking the donor for their generous donation. Print the email to the terminal and return to the original prompt.
